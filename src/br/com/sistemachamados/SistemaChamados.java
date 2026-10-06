@@ -6,9 +6,12 @@ import java.util.Iterator;
 public class SistemaChamados {
 
 	private ArrayList<Chamado> chamados = new ArrayList<>();
+	private int proximoId = 1;
 
-	public void adicionarChamado(Chamado chamado) {
-		chamados.add(chamado);
+	public void adicionarChamado(String descricao) {
+		Chamado novoChamado = new Chamado(proximoId, descricao, "Aberto");
+		chamados.add(novoChamado);
+		proximoId++;
 	}
 
 	public void listarChamados() {
@@ -48,6 +51,8 @@ public class SistemaChamados {
 				System.out.println("Chamado " +  id  + " removido ");
 				return;
 			}
+			
+			System.out.println("Chamado " + id + " não encontrado");
 		}
 
 	}
